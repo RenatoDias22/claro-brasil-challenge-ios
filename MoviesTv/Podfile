@@ -1,0 +1,17 @@
+
+platform :ios, '11.0'
+use_frameworks!
+
+target 'MoviesTv' do
+    pod 'AFNetworking'
+    pod 'ORStackView'
+    pod 'Alamofire'
+    pod 'SwiftyJSON'
+    pod 'SwiftHTTP'
+    pod 'JSONJoy-Swift'
+    pod 'SVProgressHUD'
+    pod 'Reusable'
+    pod 'SwiftGen'
+    
+end
+

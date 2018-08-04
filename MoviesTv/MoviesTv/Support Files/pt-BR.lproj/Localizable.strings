@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  MoviesTv
+
+  Created by Renato Dias on 04/08/2018.
+  Copyright © 2018 Renato Dias. All rights reserved.
+*/
+
+"title.favorite"="Favoritos";
+"empty.favorite"="Adicione filmes favoritos";
