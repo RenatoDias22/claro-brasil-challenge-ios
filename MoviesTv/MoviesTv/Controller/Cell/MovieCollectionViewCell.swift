@@ -6,8 +6,10 @@
 //  Copyright © 2018 Renato Dias. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Reusable
+import Kingfisher
 
 class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
 
@@ -19,10 +21,16 @@ class MovieCollectionViewCell: UICollectionViewCell, NibReusable {
     }
     
     private func setImage(view: UIImageView){
-        view.backgroundColor = UIColor.black
+        
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 2.5
         view.clipsToBounds = true
         view.contentMode = .scaleAspectFill
+    }
+    
+    func setImageView(_ movie: Movies) {
+        if let url = movie.posterURL {
+            self.image.setImage(with: url, placeholder: image.image)
+        }
     }
 }

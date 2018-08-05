@@ -4,6 +4,10 @@ import Foundation
 
 enum L10n {
     
+    enum Erro {
+        static let unavailable = L10n.tr("Localizable", "unavailable")
+    }
+    
     enum Favorite {
         static let empty = L10n.tr("Localizable", "empty.favorite")
         static let title = L10n.tr("Localizable", "title.favorite")

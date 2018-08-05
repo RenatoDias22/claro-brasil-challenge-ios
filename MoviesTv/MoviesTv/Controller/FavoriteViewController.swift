@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import JSONJoy
+import SwiftHTTP
+import SVProgressHUD
+import Alamofire
 
-class FavoriteViewController: UIViewController {
+class FavoriteViewController: RootViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -38,6 +42,11 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MovieCollectionViewCell.self)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: StoryboardSegue.Main.favoriteMovie.rawValue, sender: indexPath)
+        self.performSegue(withIdentifier: "Movie", sender: self)
     }
     
 }

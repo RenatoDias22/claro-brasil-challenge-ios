@@ -4,6 +4,7 @@ use_frameworks!
 
 target 'MoviesTv' do
     pod 'AFNetworking'
+    pod 'RBStoryboardLink'
     pod 'ORStackView'
     pod 'Alamofire'
     pod 'SwiftyJSON'
@@ -12,6 +13,8 @@ target 'MoviesTv' do
     pod 'SVProgressHUD'
     pod 'Reusable'
     pod 'SwiftGen'
+    pod 'DeviceKit'
+    pod 'Kingfisher'
     
 end
 

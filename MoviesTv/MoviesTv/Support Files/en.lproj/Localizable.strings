@@ -8,3 +8,5 @@
 
 "title.favorite"="Favorites";
 "empty.favorite"="Add favorite movies";
+
+"unavailable" = "Unavailable";

@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import DeviceKit
 
+let currentDevice = Device()
 let LANGUAGE = Locale.preferredLanguages.first ?? "en"
+let BASE_URL = "https://api.themoviedb.org/3/"
+let API_KEY = "fa663326ec4697b6db482e11a3e76027"
+let YOUTUBE_THUMBNAIL_BASE_URL = "http://i1.ytimg.com/vi/"
+let YOUTUBE_BASE_URL = "https://www.youtube.com/watch?v="
+let IMG_BASE_URL = "http://image.tmdb.org/t/p/"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -56,7 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         }
     }
-
 
 }
 

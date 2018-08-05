@@ -46,12 +46,14 @@
                     <navigationItem key="navigationItem" id="TSP-t5-WI2">
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="MTK-oZ-CDf">
                             <connections>
-                                <segue destination="37m-cq-ghw" kind="show" id="0at-5U-hfG"/>
+                                <action selector="searchClick:" destination="BYZ-38-t0r" id="4Zv-sG-r1M"/>
+                                <segue destination="cY6-7T-t6z" kind="custom" identifier="Search" customClass="RBStoryboardPushSegue" id="un0-8G-Zdg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="uCV-Gh-cYy" id="sPv-Sd-Qug"/>
+                        <segue destination="mCk-by-ojJ" kind="custom" identifier="Movie" customClass="RBStoryboardPushSegue" id="06F-yD-eZG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -76,47 +78,41 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="-564.46776611694156"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="gdt-41-Z4i">
+        <!--Storyboard Link-->
+        <scene sceneID="Un5-dR-C5r">
             <objects>
-                <viewController storyboardIdentifier="SearchMoviesViewController" id="37m-cq-ghw" customClass="SearchViewController" customModule="MoviesTv" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="F9N-k8-Bnr">
+                <viewController id="cY6-7T-t6z" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="if2-M4-E5I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8Ue-yb-MGN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ArP-Qo-DeY">
-                                    <size key="itemSize" width="100" height="160"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="37m-cq-ghw" id="CYp-wI-cov"/>
-                                    <outlet property="delegate" destination="37m-cq-ghw" id="ssz-XS-fEI"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="8Ue-yb-MGN" firstAttribute="leading" secondItem="F9B-yM-1a7" secondAttribute="leading" id="4T8-ed-DNe"/>
-                            <constraint firstItem="F9B-yM-1a7" firstAttribute="trailing" secondItem="8Ue-yb-MGN" secondAttribute="trailing" id="DN4-om-5s2"/>
-                            <constraint firstItem="8Ue-yb-MGN" firstAttribute="top" secondItem="F9B-yM-1a7" secondAttribute="top" id="bfE-PL-8vF"/>
-                            <constraint firstItem="F9B-yM-1a7" firstAttribute="bottom" secondItem="8Ue-yb-MGN" secondAttribute="bottom" id="wOk-6K-L6S"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="F9B-yM-1a7"/>
+                        <viewLayoutGuide key="safeArea" id="AKk-bs-Ko3"/>
                     </view>
-                    <navigationItem key="navigationItem" id="cec-HV-7ph"/>
-                    <connections>
-                        <outlet property="collectionView" destination="8Ue-yb-MGN" id="XWg-Vj-UkR"/>
-                    </connections>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Search"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fGg-WE-5dw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gVG-zR-BUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1713" y="-564"/>
+            <point key="canvasLocation" x="1783" y="-564"/>
+        </scene>
+        <!--Storyboard Link-->
+        <scene sceneID="xD0-l8-cxN">
+            <objects>
+                <viewController id="mCk-by-ojJ" customClass="RBStoryboardLink" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yfx-V7-1eX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rNd-jF-EZL"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="storyboardName" value="Movie"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i3l-0o-sOU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1782" y="205"/>
         </scene>
     </scenes>
 </document>

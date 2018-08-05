@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qef-87-IFC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Player Video View Controller-->
+        <scene sceneID="8Kn-F1-rJt">
+            <objects>
+                <viewController storyboardIdentifier="PlayerViewController" id="Qef-87-IFC" customClass="PlayerVideoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hOd-of-alc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-b4-OvI" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Pt-b4-OvI" firstAttribute="leading" secondItem="ffc-E4-1mS" secondAttribute="leading" id="BTn-eI-fXu"/>
+                            <constraint firstItem="ffc-E4-1mS" firstAttribute="bottom" secondItem="9Pt-b4-OvI" secondAttribute="bottom" id="QwB-fm-yU6"/>
+                            <constraint firstItem="ffc-E4-1mS" firstAttribute="trailing" secondItem="9Pt-b4-OvI" secondAttribute="trailing" id="eg1-L2-hux"/>
+                            <constraint firstItem="9Pt-b4-OvI" firstAttribute="top" secondItem="ffc-E4-1mS" secondAttribute="top" id="iTt-Kp-jAz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ffc-E4-1mS"/>
+                    </view>
+                    <connections>
+                        <outlet property="player" destination="9Pt-b4-OvI" id="u2A-Re-Apw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NDQ-0W-0IS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1574" y="901"/>
+        </scene>
+    </scenes>
+</document>
