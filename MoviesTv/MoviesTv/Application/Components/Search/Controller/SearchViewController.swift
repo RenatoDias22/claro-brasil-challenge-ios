@@ -16,6 +16,8 @@ class SearchViewController: RootViewController {
 
     var searchTimer: Timer?
     
+    var httpManager = HttpManager()
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     var search: UISearchController!
@@ -27,6 +29,14 @@ class SearchViewController: RootViewController {
         self.setSearchbar()
         self.setTitle()
         self.collectionView.register(cellType: MovieCollectionViewCell.self)
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(SearchViewController.setMovie),
+                                       name: .setMovieObjectkey,
+                                       object: nil)
+        
+//        NotificationCenter.default.addObserver(self, selector: #selector(SearchViewController.setMovie), name: NSNotification.Name(rawValue: setMovieObjectkey), object: nil)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -61,76 +71,15 @@ class SearchViewController: RootViewController {
             search.isActive = true
         }
     }
-
-    func getFavoritos(query : String) {
-        
-        let params = ["api_key": API_KEY, "language": LANGUAGE, "query": query]
     
-        let url = BASE_URL + "search/movie"
-    
-        HTTP.GET(url, parameters: params) { response in
-        
-            if let error = response.error {
-                print("got an error: \(error)")
-                
-            } else {
-            
+    @objc func setMovie(notfication: NSNotification) {
+        if let dict = notfication.object as! [Movies]? {
+            if let moveisObj = dict as? [Movies] {
+                self.movies = moveisObj
             }
-            do {
-                let resp = try MoviesData(JSONLoader(response.data))
-                print("Resposta do JSON : \(resp)")
-                
-                if let array : [Movie] = resp.moviesArray {
-                    
-                    self.movies.removeAll()
-                    
-                    for element in array {
-                        let movie = Movies()
-                        
-                        if let id : Int = element.id {
-                            movie.id = id
-                        }
-                        if let title : String = element.title {
-                            movie.title = title
-                        }
-                        if let originalTitle : String = element.originalTitle {
-                            movie.originalTitle = originalTitle
-                        }
-                        if let posterPath : String = element.posterPath {
-                            movie.posterPath = posterPath
-                        }
-                        if let backdropPath : String = element.backdropPath {
-                            movie.backdropPath = backdropPath
-                        }
-                        if let overview : String = element.overview {
-                            movie.overview = overview
-                        }
-                        if let releaseDate : String = element.releaseDate {
-                            movie.releaseDate = releaseDate
-                        }
-                        if let favorite : Bool = element.favorite {
-                            movie.favorite = favorite
-                        }
-                        if let trailer : String = element.trailer {
-                            movie.trailer = trailer
-                        }
-                        if let backdrops : [String] = element.backdrops {
-                            movie.backdrops = backdrops
-                        }
-                        movie.setMoveis(movie: movie)
-                        self.movies.append(movie)
-                    }
-                    self.collectionView.reloadData()
-                    SVProgressHUD.dismiss()
-                }
-            } catch {
-                print("unable to parse the JSON")
-            }
-            
-            return
         }
+        self.collectionView.reloadData()
     }
-    
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -185,7 +134,9 @@ extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate,
     @objc func searchTimer(_ timer: Timer) {
         if let text = timer.userInfo as? String {
 //            self.startLoading()
-             self.getFavoritos(query: text)
+            self.movies.removeAll()
+            self.httpManager.getFavoritos(query: text)
+
         }
     }
     

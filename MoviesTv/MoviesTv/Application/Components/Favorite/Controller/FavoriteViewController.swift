@@ -45,7 +45,6 @@ extension FavoriteViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: StoryboardSegue.Main.favoriteMovie.rawValue, sender: indexPath)
         self.performSegue(withIdentifier: "Movie", sender: self)
     }
     
