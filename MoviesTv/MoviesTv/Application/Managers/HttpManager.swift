@@ -18,8 +18,7 @@ class HttpManager {
     
     init() { }
     
-    func getFavoritos(query : String) {
-        SVProgressHUD.show()
+    func getSearchMovie(query : String) {
 
         let params = ["api_key": API_KEY, "language": LANGUAGE, "query": query]
         
@@ -78,7 +77,6 @@ class HttpManager {
                         self.moviesManager.append(movie)
                     }
                      NotificationCenter.default.post(name: NSNotification.Name(rawValue: "setMovieObjectkey"), object: self.moviesManager)
-                    SVProgressHUD.dismiss()
                 }
             } catch {
                 print("unable to parse the JSON")

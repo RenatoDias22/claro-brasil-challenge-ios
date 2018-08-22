@@ -92,7 +92,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         let movie = self.movies[indexPath.row]
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: MovieCollectionViewCell.self)
         cell.setImageView(movie)
-
+        SVProgressHUD.dismiss()
         return cell
     }
     
@@ -101,20 +101,21 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 8+2, bottom: 8, right: 8+2)
+        return UIEdgeInsets(top: 8, left: 10, bottom: 8, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         let numberOfItemsInRow: CGFloat = CGFloat(Int(UIScreen.main.bounds.width/(342.0/UIScreen.main.scale)))
-        let width = (UIScreen.main.bounds.width/numberOfItemsInRow) - (2 * 8)
+        let width = (UIScreen.main.bounds.width/numberOfItemsInRow) - 16
         let height = width/0.667
+        
         return CGSize(width: width, height: height)
     }
     
 }
 
 extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
-    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
@@ -133,9 +134,9 @@ extension SearchViewController: UISearchControllerDelegate, UISearchBarDelegate,
     
     @objc func searchTimer(_ timer: Timer) {
         if let text = timer.userInfo as? String {
-//            self.startLoading()
+            SVProgressHUD.show(withStatus: L10n.Favorite.loading)
             self.movies.removeAll()
-            self.httpManager.getFavoritos(query: text)
+            self.httpManager.getSearchMovie(query: text)
 
         }
     }

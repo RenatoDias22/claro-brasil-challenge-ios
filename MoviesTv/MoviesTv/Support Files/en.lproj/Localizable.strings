@@ -6,6 +6,7 @@
   Copyright © 2018 Renato Dias. All rights reserved.
 */
 
+"load.favorite"="Loading...";
 "title.favorite"="Favorites";
 "empty.favorite"="Add favorite movies";
 

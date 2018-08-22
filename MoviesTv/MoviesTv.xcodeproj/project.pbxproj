@@ -230,6 +230,7 @@
 		4A44C79E21174EE900060BC0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4A44C7952116898000060BC0 /* Model */,
 				4A44C7A021174F0600060BC0 /* View */,
 				4A44C79F21174EFC00060BC0 /* Controller */,
 			);
@@ -255,7 +256,6 @@
 		4A44C7A121174F2200060BC0 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				4A44C7952116898000060BC0 /* Model */,
 				4A44C7A321174F3200060BC0 /* View */,
 				4A44C7A221174F2D00060BC0 /* Controller */,
 			);

@@ -6,7 +6,8 @@
   Copyright © 2018 Renato Dias. All rights reserved.
 */
 
+"load.favorite"="Carregando...";
 "title.favorite"="Favoritos";
 "empty.favorite"="Adicione filmes favoritos";
 
-"unavailable" = "Indisponível";
+"unavailable"="Indisponível";

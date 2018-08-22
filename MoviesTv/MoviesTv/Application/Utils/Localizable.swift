@@ -9,6 +9,7 @@ enum L10n {
     }
     
     enum Favorite {
+        static let loading = L10n.tr("Localizable", "load.favorite")
         static let empty = L10n.tr("Localizable", "empty.favorite")
         static let title = L10n.tr("Localizable", "title.favorite")
     }
